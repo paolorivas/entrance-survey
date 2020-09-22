@@ -1,0 +1,25 @@
+---
+title: "Entrance-survey"
+author: "Paolo Rivas"
+date: "9/22/2020"
+output: html_document
+---
+for creating R space
+Shortcut: opt + cmd + i
+shortcut for running code: cmd+enter 
+```{r}
+DF <- read.csv("hudk4050-entrance-survey.csv", header = TRUE)
+
+mode(DF$program) #to know dtype
+```
+```{r}
+#simple math
+7*8 
+```
+### variable manipulation 
+```{r}
+mean(DF$UTC)
+
+DF$UTC.ms <- DF$UTC*DF$math.stat
+```
+### Logic
