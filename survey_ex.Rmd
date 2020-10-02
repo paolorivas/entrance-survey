@@ -23,3 +23,92 @@ mean(DF$UTC)
 DF$UTC.ms <- DF$UTC*DF$math.stat
 ```
 ### Logic
+### Vector:"Logical", "integer", "double"
+```{r}
+x <- c(1,2,3)
+x
+mode(x)
+y <- c("a", "b", "c")
+mode(y)
+
+
+```
+### Factor = list of vectors
+```{r}
+z <-as.factor(y) # factors are categorical numbers
+mode(z)
+```
+```{r}
+Z <- data.frame(z)
+Z
+```
+### Sequences
+```{r}
+
+seq(1, 10, 1) #sequence from 1-1- by increments of 1
+
+rep(1, 10) #repeat one ten times
+
+sample(y, 10, replace = TRUE) #basic random sample of a vector
+```
+#simmulate some data
+```{r}
+s <- seq(1, 100, 1) #first create a sequence by increments of 1
+s1 <- sample(s, 1000, replace = TRUE) #sample of 1000 replacing s
+p <- seq(0.01,1,0.01)
+s2 <- sample(s, 1000, prob= p, replace = TRUE)
+
+```
+### plot 
+
+Three levels of visulization
+* basic R 
+* ggplot2/lattice
+* interactive work (D3.js)
+
+```{r}
+plot(s1, s2)
+plot(s1~s2) #change de axes
+```
+### Corss tabs (pivot tables)
+```{r}
+t <-table(s1) #pivoting information
+t
+
+hist(t) #histograms
+
+hist(t, breaks = c(seq(0,25,2)))
+
+hist(t, breaks = c(seq(0,26,2)),
+      xlab = "Random Sample", #change x label
+      main = "Our Random Sample", #change main tittle 
+      ylim = c(0,10)) #change y limit
+  
+```
+```{r}
+barplot(t)
+
+barplot(t, horiz = TRUE)
+```
+```{r}
+boxplot(s1, s2)
+
+boxplot(s1, s2,
+        horizontal = TRUE,
+        notch = TRUE,
+        col = "grey",
+        border= "red")
+```
+```{r}
+boxplot(DF$compare.shopping~DF$programming,
+        ylab = "Do you compare features when shopping?",
+        xlab = "Programming Experience")
+
+plot(DF$compare.shopping, DF$discussion)
+
+DFZ <- DF[,5:9] #matrix notation
+
+pairs(DFZ)
+```
+
+
